@@ -15,10 +15,6 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="px-4 flex items-center gap-x-4 border border-secondary-300 rounded-lg mx-6">
-            <MagnifyingGlassIcon className="w-5 h-5 text-secondary-300" />
-            <input type="text" placeholder="جستجو محصول مورد نظر" className="py-[11px] placeholder:text-xs" />
-        </div>
       </div>
     </header>
   );

@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import vazirFont from "../constants/localFont";
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
+import "../styles/globals.css"
 
 export const metadata = {
   title: "فروشگاه اینترنتی اپل توپیا",
