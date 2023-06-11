@@ -1,6 +1,5 @@
 import http from "./httpServices";
 
-
 export function getOtp(phoneNumber: string) {
   return http
     .post("/user/get-otp", { phoneNumber })
@@ -28,4 +27,8 @@ export function completeUserProfile({
   return http
     .post("/user/complete-profile", { name, email })
     .then(({ data }) => data.data);
+}
+
+export function getUserProfile() {
+  return http.get("/user/profile").then(({ data }) => data.data);
 }

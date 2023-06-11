@@ -15,12 +15,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fa" dir="rtl">
       <body className={`${vazirFont.variable} font-sans`}>
-        <Toaster />
-        <Header />
-        <main className="min-h-screen">
-          <Providers>{children}</Providers>
-        </main>
-        <Footer />
+        <Providers>
+          <Toaster />
+          <Header />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
