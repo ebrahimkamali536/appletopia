@@ -44,7 +44,11 @@ const Auth = () => {
       } else {
         router.push("/complete-profile");
       }
-    } catch (error) {}
+    } catch (error:any) {
+        let message = "Unknown Error";
+      if (error instanceof Error) message = error.message;
+      toast.error(error?.response?.data?.message);
+    }
   };
   const renderOtpComponent = () => {
     switch (otpCase) {
