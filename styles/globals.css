@@ -32,6 +32,38 @@
     --color-red-300: 252, 165, 165;
   }
 }
+@layer components {
+  .textField__input {
+    @apply w-full py-3 px-4 rounded-xl bg-gray-100 text-secondary-900 border border-gray-100 outline-none duration-200 transition-all ease-in-out hover:border-primary-300 focus:outline-none focus:border-primary-300 focus:shadow-input-focus focus:bg-white;
+  }
+  .btn {
+    @apply px-2 py-1 font-bold rounded-2xl transition-all duration-300;
+  }
+  .btn--primary {
+    @apply px-4 py-3 bg-primary-900 text-white hover:bg-primary-800 shadow-lg shadow-primary-300;
+  }
+  .table__th {
+    @apply border-b-2 border-b-gray-500 font-medium p-3 pr-8 pb-3 text-right;
+  }
+  .table__td {
+    @apply border-b  border-b-gray-300 p-3 pr-8 pb-3 text-right;
+  }
+  .badge {
+    @apply whitespace-nowrap px-3 py-1 rounded-xl;
+  }
+  .badge--primary {
+    @apply bg-primary-900 text-white;
+  }
+  .badge--secondary {
+    @apply bg-secondary-600 text-white;
+  }
+  .badge--success {
+    @apply bg-green-600 text-white;
+  }
+  .badge--error {
+    @apply bg-rose-600 text-white;
+  }
+}
 
 
 html,
@@ -40,6 +72,5 @@ body {
   margin: 0;
   font-family: var(--font-vazir);
   min-height: 100vh;
-  user-select: none;
   background-color: var(--color-secondary-600);
 }
