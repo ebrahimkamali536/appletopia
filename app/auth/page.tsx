@@ -12,6 +12,8 @@ const Auth = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [time, setTime] = useState(RESEND_TIME);
   const [otp, setOtp] = useState("");
+  const [error, setError] = useState("");
+
   const router = useRouter();
   const { isLoading, mutateAsync: getOtpMutateAsync } = useMutation({
     mutationFn: getOtp,
@@ -24,16 +26,17 @@ const Auth = () => {
   };
   const sendOtpHandler = async (e: React.FormEvent) => {
     e.preventDefault();
+
     try {
       const data = await getOtpMutateAsync(phoneNumber);
       setOtpCase(2);
       setTime(RESEND_TIME);
+      console.log(data);
     } catch (error: any) {
-      let message = "Unknown Error";
-      if (error instanceof Error) message = error.message;
-      toast.error(error?.response?.data?.message);
+      console.log(error);
     }
   };
+
   const checkOtpHandler = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
@@ -44,12 +47,11 @@ const Auth = () => {
       } else {
         router.push("/complete-profile");
       }
-    } catch (error:any) {
-        let message = "Unknown Error";
-      if (error instanceof Error) message = error.message;
-      toast.error(error?.response?.data?.message);
+    } catch (error: any) {
+      console.log(error);
     }
   };
+
   const renderOtpComponent = () => {
     switch (otpCase) {
       case 1:
@@ -59,6 +61,7 @@ const Auth = () => {
             onChange={phoneNumberHandler}
             onSubmit={sendOtpHandler}
             isLoading={isLoading}
+            error={error}
           />
         );
       case 2:

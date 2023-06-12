@@ -3,7 +3,7 @@ import http from "./httpServices";
 export function getOtp(phoneNumber: string) {
   return http
     .post("/user/get-otp", { phoneNumber })
-    .then(({ data }) => data.data);
+    .then(({data}) => data.data)
 }
 
 export function checkOtp({
@@ -17,6 +17,7 @@ export function checkOtp({
     .post("/user/check-otp", { phoneNumber, otp })
     .then(({ data }) => data.data);
 }
+
 export function completeUserProfile({
   name,
   email,
