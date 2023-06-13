@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import GetOtpForm from "./GetOtpForm";
 import { useMutation } from "@tanstack/react-query";
-import { checkOtp, getOtp } from "../../services/authServices";
+import { checkOtp, getOtp } from "../../../services/authServices";
 import { toast } from "react-hot-toast";
 import CheckOtpForm from "./CheckOtpForm";
 import { useRouter } from "next/navigation";

@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import TextField from "../../components/common/TextField";
+import TextField from "../../../components/common/TextField";
 import { useMutation } from "@tanstack/react-query";
-import { completeUserProfile } from "../../services/authServices";
+import { completeUserProfile } from "../../../services/authServices";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
