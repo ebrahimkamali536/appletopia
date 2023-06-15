@@ -20,10 +20,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Providers>
           <Toaster />
           <div className="grid grid-cols-11">
-            <div className="col-span-2">
+            <div className="hidden lg:block col-span-2">
               <SideBar />
             </div>
-            <div className="col-span-9">
+            <div className="col-span-12 lg:col-span-9">
               <Header />
               <main className="min-h-screen col-span-8">{children}</main>
             </div>

@@ -3,15 +3,19 @@
 import { Bars3Icon, HomeIcon, PowerIcon } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
 import MobileMenu from "./mobileMenu";
+import { logout } from "../../../services/authServices";
 
 const Header = () => {
     const [open, setOpen] = useState(false);
-
+  const logoutHandler = async () => {
+    await logout()
+    window.location.href = "/"
+  }
   return (
     <header className="bg-white px-4 py-5">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
-          <div>
+          <div className="lg:hidden">
             <button onClick={() => setOpen(prevState => !prevState)} className="w-10 h-10 rounded-full bg-secondary-100 flex items-center justify-center">
               <Bars3Icon className="text-secondary-700 w-5 h-5" />
             </button>
@@ -23,7 +27,7 @@ const Header = () => {
           </div>
         </div>
         <div>
-          <button className="w-10 h-10 rounded-full bg-secondary-100 flex items-center justify-center">
+          <button onClick={logoutHandler} className="w-10 h-10 rounded-full bg-secondary-100 flex items-center justify-center">
             <PowerIcon className="text-secondary-700 w-5 h-5" />
           </button>
         </div>

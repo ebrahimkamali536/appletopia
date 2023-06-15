@@ -42,7 +42,7 @@ const SideBar = () => {
             </Link>
           </li>
           <li>
-            <Link href="/" className="flex items-center gap-x-2">
+            <Link href="/profile/edit" className="flex items-center gap-x-2">
               <div
                 className={`w-8 h-8 bg-white flex justify-center items-center rounded-md`}
               >

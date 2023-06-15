@@ -1,9 +1,10 @@
+import axios from "axios";
 import http from "./httpServices";
 
 export function getOtp(phoneNumber: string) {
   return http
     .post("/user/get-otp", { phoneNumber })
-    .then(({data}) => data.data)
+    .then(({ data }) => data.data);
 }
 
 export function checkOtp({
@@ -32,4 +33,14 @@ export function completeUserProfile({
 
 export function getUserProfile() {
   return http.get("/user/profile").then(({ data }) => data.data);
+}
+export function updateUserProfile(formData) {
+  console.log(formData)
+  return http
+    .patch("/user/update", formData)
+    .then(({ data }) => data.data);
+}
+
+export function logout() {
+  return http.post("/user/logout");
 }
