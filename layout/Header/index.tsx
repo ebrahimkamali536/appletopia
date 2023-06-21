@@ -1,34 +1,65 @@
-"use client"
-import React from "react";
-import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  BuildingStorefrontIcon,
+  HeartIcon,
+  HomeIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import Image from "next/image";
-import {useQuery} from "@tanstack/react-query"
-import { getUserProfile } from "../../services/authServices";
-import { useGetUser } from "../../hook/useAuth";
-const Header = () => {
-  const {data, isLoading, error} = useGetUser();
-  
-  return (
-    <header>
-      <div>
-        <div className="relative flex items-center justify-between p-4 text-white rounded-b-2xl bg-primary-900 mb-4">
-          <div>
-            <Bars3Icon className="w-8 h-8" />
-          </div>
-          <div>
-            <Image src="/assets/images/logo.svg" width={40} height={40} alt="logo"  />
-          </div>
-          <div>
-            {
-              data ? <div>
-                <span>{data.user.name}</span>
-              </div> : <div>
-                <span>ورود</span>
-              </div>
-            }
-          </div>
-        </div>
+import Link from "next/link";
+import React from "react";
+import MobileMenu from "./MobileMenu";
+import LoginAndCart from "./LoginAndCart";
+import SearchForm from "./SearchForm";
 
+const Header = () => {
+  return (
+    <header className="mb-6">
+      <div className="bg-white px-4 py-2.5 lg:py-4 shadow-md">
+        <div className="flex items-center justify-between mb-2.5 lg:mb-4">
+          {/* mobile menu */}
+          <div className="lg:hidden">
+            <MobileMenu />
+          </div>
+
+          {/* logo */}
+          <Image
+            src="/assets/images/logo.svg"
+            alt="logo"
+            width={50}
+            height={50}
+          />
+          <div className="hidden lg:block ml-auto mr-10 w-[500px]">
+            <SearchForm />
+          </div>
+          {/* login&basket */}
+          <LoginAndCart />
+        </div>
+        <div className="lg:hidden">
+          <SearchForm />
+        </div>
+        <nav className="hidden lg:block">
+          <ul className="flex gap-x-8">
+            <li>
+              <Link href="/" className="flex items-center gap-x-1.5">
+                <HomeIcon className="w-5 h-5" />
+                <span className="text-lg font-medium">خانه</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/" className="flex items-center gap-x-1.5">
+                <BuildingStorefrontIcon className="w-5 h-5" />
+                <span className="text-lg font-medium">محصولات</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/" className="flex items-center gap-x-1.5">
+                <HeartIcon className="w-5 h-5" />
+                <span className="text-lg font-medium">علاقه مند‌ها</span>
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
   );

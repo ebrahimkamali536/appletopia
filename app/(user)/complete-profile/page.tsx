@@ -1,11 +1,10 @@
 "use client";
-
 import React, { useState } from "react";
 import TextField from "../../../components/common/TextField";
 import { useMutation } from "@tanstack/react-query";
 import { completeUserProfile } from "../../../services/authServices";
 import { toast } from "react-hot-toast";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const CompleteProfile = () => {
   const [input, setInput] = useState({ name: "", email: "" });
@@ -25,7 +24,7 @@ const CompleteProfile = () => {
         email: input.email,
       });
       toast.success(message);
-      router.push("/", null, {shallow: true})
+      // router.replace("/")
     } catch (error: any) {
       let message = "Unknown Error";
       if (error instanceof Error) message = error.message;

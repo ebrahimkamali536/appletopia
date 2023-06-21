@@ -54,7 +54,8 @@ module.exports = {
       },
       boxShadow: {
         "input-focus": "0 12px 24px -8px rgb(var(--color-primary-300))",
-        "nav": "0 0 20px 0 rgba(0,0,0,.1)"
+        "nav": "0 0 20px 0 rgba(0,0,0,.1)",
+        "product-card": "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;"
       },
     },
   },
