@@ -13,9 +13,9 @@ import { toLocalDateStringShort } from "../../../utils/toLocalDateStringShort";
 const Profile = () => {
   const { data } = useGetUser();
   const { user } = data || {};
-  console.log(user);
+
   const date = new Date();
-  console.log(date);
+
   return (
     <div className="flex flex-col gap-y-6 px-6 py-6 lg:py-10">
       {/* first section */}

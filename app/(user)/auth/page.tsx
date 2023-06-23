@@ -31,7 +31,6 @@ const Auth = () => {
       const data = await getOtpMutateAsync(phoneNumber);
       setOtpCase(2);
       setTime(RESEND_TIME);
-      console.log(data);
     } catch (error: any) {
       console.log(error);
     }

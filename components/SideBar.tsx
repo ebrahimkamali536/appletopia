@@ -1,41 +1,40 @@
 "use client";
 
 import React, { useCallback, useState } from "react";
-import { getCategories } from "../services/categoriesServices";
 import CheckBox from "./common/CheckBox";
 import { useRouter } from "next/navigation";
 import { usePathname, useSearchParams } from "next/navigation";
 
 const SideBar = ({categories}) => {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams()!;
-  const [selectedCategories, setSelectedCategories] = useState([]);
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const [selectedCategories, setSelectedCategories] = useState(searchParams.get("category")?.split(",") || []);
 
+ 
   const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams);
-      params.set(name, value);
-
-      return params.toString();
+    (name: string, value: (string | string[])) => {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set('category', value.toString());
+      return params.toString()
     },
-    [searchParams],
-  );
-    const returnnewArrry = (array) => {
-      
-    }
+    [searchParams]
+  )
+
   const categoryHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
+
     if(selectedCategories.includes(value)) {
-      const categories = selectedCategories.filter(c => c !== c);
+      const categories = selectedCategories.filter(category => category !== value);
       setSelectedCategories(categories)
-      console.log('true')
+      router.push(pathname + "?" + createQueryString("category", categories))
     } else {
-      setSelectedCategories([...selectedCategories, value]);
+      setSelectedCategories([...selectedCategories, value])
       router.push(pathname + "?" + createQueryString("category", [...selectedCategories, value]))
+
     }
-  };
-  console.log(selectedCategories)
+  }
+
   return (
     <div className="bg-white shadow-md p-6 rounded-xl">
       <h4 className="text-primary-900 mb-5 font-bold text-lg">فیلتر</h4>

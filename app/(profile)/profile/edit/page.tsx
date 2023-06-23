@@ -34,7 +34,7 @@ const EditProfile = () => {
   };
 
   if (isLoading) return <p>loading</p>;
-  console.log(formData);
+
 
   return (
     <div>

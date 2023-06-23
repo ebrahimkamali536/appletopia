@@ -35,7 +35,6 @@ export function getUserProfile() {
   return http.get("/user/profile").then(({ data }) => data.data);
 }
 export function updateUserProfile(formData) {
-  console.log(formData)
   return http
     .patch("/user/update", formData)
     .then(({ data }) => data.data);
