@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 const CompleteProfile = () => {
   const [input, setInput] = useState({ name: "", email: "" });
-  const router = useRouter()
+  const router = useRouter();
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setInput((prevState) => ({ ...prevState, [name]: value }));
@@ -24,7 +24,7 @@ const CompleteProfile = () => {
         email: input.email,
       });
       toast.success(message);
-      // router.replace("/")
+      window.location.href = "/";
     } catch (error: any) {
       let message = "Unknown Error";
       if (error instanceof Error) message = error.message;
@@ -32,24 +32,26 @@ const CompleteProfile = () => {
     }
   };
   return (
-    <div>
-      <form onSubmit={submitHandler}>
-        <TextField
-          label="نام و نام خانوادگی"
-          value={input.name}
-          onChange={inputHandler}
-          name="name"
-        />
-        <TextField
-          label="ایمیل"
-          value={input.email}
-          onChange={inputHandler}
-          name="email"
-        />
-        <button className="btn--primary w-full rounded-xl disabled:opacity-50 disabled:cursor-not-allowed">
-          ارسال کد تایید
-        </button>
-      </form>
+    <div className="w-full flex items-center justify-center mt-20 px-6">
+      <div className="w-full bg-white py-10 px-6 rounded-xl shadow-md md:max-w-[400px]">
+        <form onSubmit={submitHandler}>
+          <TextField
+            label="نام و نام خانوادگی"
+            value={input.name}
+            onChange={inputHandler}
+            name="name"
+          />
+          <TextField
+            label="ایمیل"
+            value={input.email}
+            onChange={inputHandler}
+            name="email"
+          />
+          <button className="btn--primary w-full rounded-xl disabled:opacity-50 disabled:cursor-not-allowed mt-4">
+            ارسال کد تایید
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

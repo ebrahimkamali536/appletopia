@@ -15,9 +15,9 @@ const MobileMenu = ({ setOpen }: IProps) => {
         <XMarkIcon className="w-5 h-5" />
       </button>
       <nav>
-        <ul className="mt-20 px-6 flex flex-col gap-y-6">
+        <ul className="mt-20 px-6 flex flex-col gap-y-6" onClick={() => setOpen(false)}>
           <li>
-            <Link href="/" className="flex items-center gap-x-2">
+            <Link href="/profile" className="flex items-center gap-x-2">
               <div className={`w-8 h-8 bg-white flex justify-center items-center rounded-md`}>
                 <WrenchScrewdriverIcon className={`w-4 h-4`} />
               </div>
@@ -25,7 +25,7 @@ const MobileMenu = ({ setOpen }: IProps) => {
             </Link>
           </li>
           <li>
-            <Link href="/" className="flex items-center gap-x-2">
+            <Link href="/profile/order-list" className="flex items-center gap-x-2">
               <div className={`w-8 h-8 bg-white flex justify-center items-center rounded-md`}>
                 <ClipboardIcon className={`w-4 h-4`} />
               </div>
@@ -41,7 +41,7 @@ const MobileMenu = ({ setOpen }: IProps) => {
             </Link>
           </li>
           <li>
-            <Link href="/" className="flex items-center gap-x-2">
+            <Link href="/profile" className="flex items-center gap-x-2">
               <div className={`w-8 h-8 bg-white flex justify-center items-center rounded-md`}>
                 <BellIcon className={`w-4 h-4`} />
               </div>
@@ -49,7 +49,7 @@ const MobileMenu = ({ setOpen }: IProps) => {
             </Link>
           </li>
           <li>
-            <Link href="/" className="flex items-center gap-x-2">
+            <Link href="/profile" className="flex items-center gap-x-2">
               <div className={`w-8 h-8 bg-white flex justify-center items-center rounded-md`}>
                 <ChatBubbleLeftIcon className={`w-4 h-4`} />
               </div>

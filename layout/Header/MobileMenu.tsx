@@ -19,7 +19,7 @@ const MobileMenu = () => {
         <nav
           className={`transition-all duration-300 ${
             open
-              ? "bg-primary-900 w-3/4  z-20 fixed top-0 right-0 h-screen py-6 px-4 translate-x-0"
+              ? "bg-primary-900 w-3/4 z-20 fixed top-0 right-0 h-screen py-6 px-4 translate-x-0"
               : "translate-x-full bg-primary-900 w-3/4  z-20 fixed top-0 right-0 h-screen py-6 px-4"
           }`}
         >
@@ -43,13 +43,13 @@ const MobileMenu = () => {
               </Link>
             </li>
             <li>
-              <Link href="/" className="flex items-center gap-x-2.5">
+              <Link href="/products" className="flex items-center gap-x-2.5">
                 <BuildingStorefrontIcon className="w-8 h-8" />
                 <span className="text-lg font-medium">محصولات</span>
               </Link>
             </li>
             <li>
-              <Link href="/" className="flex items-center gap-x-2.5">
+              <Link href="/favorite" className="flex items-center gap-x-2.5">
                 <HeartIcon className="w-8 h-8" />
                 <span className="text-lg font-medium">علاقه مند‌ها</span>
               </Link>

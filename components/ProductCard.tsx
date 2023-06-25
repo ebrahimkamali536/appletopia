@@ -2,6 +2,7 @@ import React from "react";
 import { IProduct } from "../interface/type";
 import Image from "next/image";
 import Link from "next/link";
+import { toPersianNumber } from "../utils/toPersianNumber";
 
 interface IProps {
   product: IProduct;
@@ -27,7 +28,7 @@ const ProductCard = ({ product }: IProps) => {
       </div>
       <div>
         <p className="text-left font-medium text-lg text-primary-700">
-          {product.offPrice.toLocaleString()}{" "}
+          {toPersianNumber(product.offPrice)}{" "}
           <span className="text-primary-800">تومان</span>
         </p>
       </div>

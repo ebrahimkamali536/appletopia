@@ -6,8 +6,8 @@ import { useCallback, useState } from "react";
 
 const sortItems = [
   { id: 1, value: "latest", label: "جدید ترین" },
-  { id: 1, value: "earliest", label: "قدیمی ترین" },
-  { id: 1, value: "popular", label: "محبوب ترین" },
+  { id: 2, value: "earliest", label: "قدیمی ترین" },
+  { id: 3, value: "popular", label: "محبوب ترین" },
 ];
 
 const CategorySort = () => {

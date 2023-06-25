@@ -5,10 +5,11 @@ import {
 } from "../../../../services/productServices";
 import {
   GiftIcon,
-  ShoppingCartIcon,
   TruckIcon,
   WrenchScrewdriverIcon,
 } from "@heroicons/react/24/outline";
+import AddToCart from "../../../../components/AddToCart";
+import { toPersianNumber } from "../../../../utils/toPersianNumber";
 
 export const dynamicParams = false;
 
@@ -39,14 +40,14 @@ const ProductDetails = async ({ params }) => {
                     product.discount ? "line-through" : "font-bold"
                   }`}
                 >
-                  {product.price}
+                  {toPersianNumber(product.price)}
                 </span>
                 <span className="text-sm pr-1">تومان</span>
               </p>
               {!!product.discount && (
                 <div>
                   <p className="text-xl font-bold">
-                    قیمت با تخفیف: {product.offPrice}
+                    قیمت با تخفیف: {toPersianNumber(product.offPrice)}
                   </p>
                   <div className="bg-red-500 px-2 py-0.5 rounded-xl text-white text-sm">
                     {product.discount} %
@@ -54,10 +55,7 @@ const ProductDetails = async ({ params }) => {
                 </div>
               )}
             </div>
-            <button className="flex items-center justify-center gap-x-4 btn--primary w-full rounded-lg">
-              <ShoppingCartIcon className="w-8 h-8" />
-              <span>افزودن به سبد خرید</span>
-            </button>
+            <AddToCart product={product} />
           </div>
         </div>
         <div className="md:w-1/3">
@@ -78,14 +76,14 @@ const ProductDetails = async ({ params }) => {
             <span
               className={`${product.discount ? "line-through" : "font-bold"}`}
             >
-              {product.price}
+              {toPersianNumber(product.price)}
             </span>
             <span className="text-sm pr-1">تومان</span>
           </p>
           {!!product.discount && (
             <div>
               <p className="text-xl font-bold">
-                قیمت با تخفیف: {product.offPrice}
+                قیمت با تخفیف: {toPersianNumber(product.offPrice)}
               </p>
               <div className="bg-red-500 px-2 py-0.5 rounded-xl text-white text-sm">
                 {product.discount} %
@@ -93,10 +91,7 @@ const ProductDetails = async ({ params }) => {
             </div>
           )}
         </div>
-        <button className="flex items-center justify-center gap-x-4 btn--primary w-full rounded-lg">
-          <ShoppingCartIcon className="w-8 h-8" />
-          <span>افزودن به سبد خرید</span>
-        </button>
+        <AddToCart product={product} />
       </div>
       {/* service & customer */}
       <div className="bg-primary-100 flex flex-col gap-y-2 text-secondary-900 p-4 rounded-md mt-8">

@@ -25,9 +25,9 @@ const EditProfile = () => {
   const submitHandler = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const {message} = await mutateAsync(formData);
+      const { message } = await mutateAsync(formData);
       queryClient.invalidateQueries({ queryKey: ["get-user"] });
-      toast.success(message)
+      toast.success(message);
     } catch (error) {
       toast.error(error?.response?.data?.message);
     }
@@ -35,34 +35,34 @@ const EditProfile = () => {
 
   if (isLoading) return <p>loading</p>;
 
-
   return (
-    <div>
-      <h1>اطلاعات کاربری</h1>
-      <form onSubmit={submitHandler}>
-        {Object.keys(includeObject(user, includesKey)).map((key) => (
-          <TextField
-            label={key}
-            name={key}
-            key={key}
-            value={formData[key] || ""}
-            onChange={(e) =>
-              setFormData((prevState) => ({
-                ...prevState,
-                [e.target.name]: e.target.value,
-              }))
-            }
-          />
-        ))}
-        <div>
-          <button
-            disabled={!!isUpdating}
-            className="btn--primary w-full rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            بروزرسانی
-          </button>
-        </div>
-      </form>
+    <div className="mt-6 md:mt-8 px-6 md:px-8">
+      <div className="bg-white rounded-lg py-10 px-20">
+        <h1 className="font-bold text-xl mb-8">اطلاعات کاربری</h1>
+        <form onSubmit={submitHandler}>
+          {Object.keys(includeObject(user, includesKey)).map((key) => (
+            <TextField
+              label={key}
+              name={key}
+              key={key}
+              value={formData[key] || ""}
+              onChange={(e) =>
+                setFormData((prevState) => ({
+                  ...prevState,
+                  [e.target.name]: e.target.value,
+                }))
+              }
+            />
+          ))}
+
+            <button
+              disabled={!!isUpdating}
+              className="btn--primary w-full rounded-xl disabled:opacity-50 disabled:cursor-not-allowed mt-6"
+            >
+              بروزرسانی
+            </button>
+        </form>
+      </div>
     </div>
   );
 };

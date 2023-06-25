@@ -23,12 +23,14 @@ const Header = () => {
           </div>
 
           {/* logo */}
-          <Image
-            src="/assets/images/logo.svg"
-            alt="logo"
-            width={50}
-            height={50}
-          />
+          <Link href="/">
+            <Image
+              src="/assets/images/logo.svg"
+              alt="logo"
+              width={50}
+              height={50}
+            />
+          </Link>
           <div className="hidden lg:block ml-auto mr-10 w-[500px]">
             <SearchForm />
           </div>
@@ -39,7 +41,7 @@ const Header = () => {
           <SearchForm />
         </div>
         <nav className="hidden lg:block">
-          <ul className="flex gap-x-8">
+          <ul className="flex gap-x-8 text-[#0a2942]">
             <li>
               <Link href="/" className="flex items-center gap-x-1.5">
                 <HomeIcon className="w-5 h-5" />
@@ -47,13 +49,13 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link href="/" className="flex items-center gap-x-1.5">
+              <Link href="/products" className="flex items-center gap-x-1.5">
                 <BuildingStorefrontIcon className="w-5 h-5" />
                 <span className="text-lg font-medium">محصولات</span>
               </Link>
             </li>
             <li>
-              <Link href="/" className="flex items-center gap-x-1.5">
+              <Link href="/favorite" className="flex items-center gap-x-1.5">
                 <HeartIcon className="w-5 h-5" />
                 <span className="text-lg font-medium">علاقه مند‌ها</span>
               </Link>

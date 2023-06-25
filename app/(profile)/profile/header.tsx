@@ -4,6 +4,7 @@ import { Bars3Icon, HomeIcon, PowerIcon } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
 import MobileMenu from "./mobileMenu";
 import { logout } from "../../../services/authServices";
+import Link from "next/link";
 
 const Header = () => {
     const [open, setOpen] = useState(false);
@@ -21,9 +22,9 @@ const Header = () => {
             </button>
           </div>
           <div>
-            <button className="w-10 h-10 rounded-full bg-secondary-100 flex items-center justify-center">
+            <Link href="/" className="w-10 h-10 rounded-full bg-secondary-100 flex items-center justify-center">
               <HomeIcon className="text-secondary-700 w-5 h-5" />
-            </button>
+            </Link>
           </div>
         </div>
         <div>
@@ -32,7 +33,7 @@ const Header = () => {
           </button>
         </div>
       </div>
-      <div className={`transition-all duration-300 ${open ? "h-screen w-screen bg-primary-900 fixed top-0 left-0" : "hidden"}`}>
+      <div className={`transition-all duration-300 ${open ? "h-screen w-screen bg-primary-900 fixed top-0 left-0 z-10" : "hidden"}`}>
         <MobileMenu setOpen={setOpen} />
       </div>
     </header>

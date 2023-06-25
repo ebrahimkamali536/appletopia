@@ -1,12 +1,14 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import GetOtpForm from "./GetOtpForm";
 import { useMutation } from "@tanstack/react-query";
 import { checkOtp, getOtp } from "../../../services/authServices";
 import { toast } from "react-hot-toast";
 import CheckOtpForm from "./CheckOtpForm";
 import { useRouter } from "next/navigation";
+
 const RESEND_TIME = 90;
+
 const Auth = () => {
   const [otpCase, setOtpCase] = useState(1);
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -28,7 +30,8 @@ const Auth = () => {
     e.preventDefault();
 
     try {
-      const data = await getOtpMutateAsync(phoneNumber);
+      const { message } = await getOtpMutateAsync(phoneNumber);
+      toast.success(message);
       setOtpCase(2);
       setTime(RESEND_TIME);
     } catch (error: any) {
@@ -50,6 +53,12 @@ const Auth = () => {
       console.log(error);
     }
   };
+  useEffect(() => {
+    const timer = time > 0 && setInterval(() => setTime((t) => t - 1), 1000);
+    return () => {
+      if (timer) clearInterval(timer);
+    };
+  }, [time]);
 
   const renderOtpComponent = () => {
     switch (otpCase) {
@@ -78,7 +87,7 @@ const Auth = () => {
         );
     }
   };
-  return <div className="mx-6">{renderOtpComponent()}</div>;
+  return <div className="">{renderOtpComponent()}</div>;
 };
 
 export default Auth;

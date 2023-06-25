@@ -9,7 +9,7 @@ interface IProps {
 
 const TextField = ({ label, value, onChange, name }: IProps) => {
   return (
-    <div className="flex flex-col gap-y-2">
+    <div className="flex flex-col gap-y-2 mb-2">
       <label>{label}</label>
       <input
         type="text"

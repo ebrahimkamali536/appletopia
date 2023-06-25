@@ -3,7 +3,7 @@ import {
     ChevronLeftIcon,
     ShieldCheckIcon,
   } from "@heroicons/react/24/outline";
-  import React, { Dispatch, SetStateAction } from "react";
+  import React, { Dispatch, SetStateAction, useEffect } from "react";
   import OTPInput from "react-otp-input";
   
   interface IProps {
@@ -27,15 +27,21 @@ import {
     ResendOtpCode,
     onBack,
   }: IProps) => {
+
     function formatTime(seconds: number) {
       const minutes = Math.floor(seconds / 60);
       const remainingSeconds = seconds % 60;
       return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
     }
+
+    useEffect(() => {
+      
+    }, [])
+
     return (
-      <div className="w-full mt-10 px-6">
-        <div className="w-full lg:w-[400px] flex justify-center flex-col mx-auto">
-          <div className="flex flex-col gap-y-6 mb-6">
+      <div className="w-full flex items-center justify-center mt-20 px-6">
+        <div className="w-full bg-white py-10 px-6 rounded-xl shadow-md md:max-w-[400px]">
+          <div className="flex flex-col gap-y-4 mb-4">
             <button
               onClick={onBack}
               className="flex items-center justify-start gap-x-1 text-secondary-300"
@@ -43,21 +49,20 @@ import {
               <ArrowRightIcon className="w-4 h-4" />
               بازگشت
             </button>
-            <div className="flex items-center gap-x-1.5 px-4 py-2 rounded-md bg-success/10 text-success/90 w-full">
+            <div className="flex items-center justify-center gap-x-1.5 px-4 py-2 rounded-md bg-success/10 text-success/90 w-full text-xs">
               <ShieldCheckIcon className="w-5 h-5" />
               کد تایید به شماره {phoneNumber} ارسال گردید
             </div>
           </div>
           <form
             onSubmit={onSubmit}
-            className="w-full lg:w-[400px] flex flex-col gap-y-6"
+            className="w-full md:max-w-[450px] flex flex-col gap-y-4"
           >
             <p className="font-bold">کد تایید را وارد کنید</p>
             <OTPInput
               value={otp}
               onChange={setOtp}
               numInputs={6}
-              renderSeparator={<span>-</span>}
               renderInput={(props) => <input {...props} />}
               inputStyle={{
                 width: "2.5rem",
