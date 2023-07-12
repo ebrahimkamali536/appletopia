@@ -5,12 +5,18 @@ import CategorySidebar from "../../../components/CategorySidebar";
 import { getCategories } from "../../../services/categoriesServices";
 import queryString from "query-string";
 import CategorySort from "../../../components/CategorySort";
+import { cookies } from "next/headers";
+import { toStringCookies } from "../../../utils/toStringCookies";
+
 
 export const dynamic = "force-dynamic"
 
 const Products = async ({ searchParams }) => {
-  const { products } = await getProducts(queryString.stringify(searchParams));
-  const { categories } = await getCategories();
+  const cookieStore = cookies();
+
+  const productsPromise = getProducts(queryString.stringify(searchParams));
+  const categoryPromise = getCategories();
+  const [{products}, {categories}] = await Promise.all([productsPromise, categoryPromise]);
 
   return (
     <div className="container lg:max-w-screen-xl px-4">
@@ -19,7 +25,7 @@ const Products = async ({ searchParams }) => {
           <CategorySidebar categories={categories} />
         </div>
         <div className="grid gap-4 md:col-span-8">
-          <div>
+          <div className="hidden md:block">
             <CategorySort />
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

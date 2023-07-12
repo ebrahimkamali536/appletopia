@@ -11,7 +11,7 @@ import { useGetUser } from "../../hook/useAuth";
 const LoginAndCart = () => {
   const { data } = useGetUser();
   const { user, cart } = data || {};
-  console.log(cart);
+
   return (
     <div className="flex items-center gap-x-2.5">
       <div>

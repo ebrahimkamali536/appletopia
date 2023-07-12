@@ -30,10 +30,9 @@ const AddToCart = ({ product }) => {
       }
     }
   };
-  console.log(user, product._id)
 
   return (
-    <div>
+    <div className="w-full md:w-2/3">
       {isInCart(user, product._id) ? (
         <Link href="/cart">تکمیل سفارش</Link>
       ) : (

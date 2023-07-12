@@ -14,7 +14,7 @@ import SearchForm from "./SearchForm";
 
 const Header = () => {
   return (
-    <header className="mb-6">
+    <header>
       <div className="bg-white px-4 py-2.5 lg:py-4 shadow-md">
         <div className="flex items-center justify-between mb-2.5 lg:mb-4">
           {/* mobile menu */}
@@ -52,12 +52,6 @@ const Header = () => {
               <Link href="/products" className="flex items-center gap-x-1.5">
                 <BuildingStorefrontIcon className="w-5 h-5" />
                 <span className="text-lg font-medium">محصولات</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/favorite" className="flex items-center gap-x-1.5">
-                <HeartIcon className="w-5 h-5" />
-                <span className="text-lg font-medium">علاقه مند‌ها</span>
               </Link>
             </li>
           </ul>

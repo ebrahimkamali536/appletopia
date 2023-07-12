@@ -3,6 +3,7 @@ import { IProduct } from "../interface/type";
 import Image from "next/image";
 import Link from "next/link";
 import { toPersianNumber } from "../utils/toPersianNumber";
+import { HeartIcon } from "@heroicons/react/24/outline";
 
 interface IProps {
   product: IProduct;

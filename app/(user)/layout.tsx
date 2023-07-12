@@ -13,15 +13,12 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="fa" dir="rtl">
-      <body
-        className={`${vazirFont.variable} font-sans`}
-        suppressHydrationWarning={true}
-      >
+    <html lang="fa" dir="rtl" suppressHydrationWarning={true}>
+      <body className={`${vazirFont.variable} font-sans`}>
         <Providers>
           <Toaster />
           <Header />
-          <main className="min-h-screen">{children}</main>
+          <main className="min-h-screen my-6">{children}</main>
           <Footer />
         </Providers>
       </body>

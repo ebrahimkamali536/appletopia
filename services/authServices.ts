@@ -35,11 +35,13 @@ export function getUserProfile() {
   return http.get("/user/profile").then(({ data }) => data.data);
 }
 export function updateUserProfile(formData) {
-  return http
-    .patch("/user/update", formData)
-    .then(({ data }) => data.data);
+  return http.patch("/user/update", formData).then(({ data }) => data.data);
 }
 
 export function logout() {
   return http.post("/user/logout");
+}
+// admin related fetches
+export function getUserList() {
+  return http.get("/admin/user/list").then(({ data }) => data.data);
 }

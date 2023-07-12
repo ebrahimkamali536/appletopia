@@ -48,12 +48,6 @@ const MobileMenu = () => {
                 <span className="text-lg font-medium">محصولات</span>
               </Link>
             </li>
-            <li>
-              <Link href="/favorite" className="flex items-center gap-x-2.5">
-                <HeartIcon className="w-8 h-8" />
-                <span className="text-lg font-medium">علاقه مند‌ها</span>
-              </Link>
-            </li>
           </ul>
         </nav>
         <div
